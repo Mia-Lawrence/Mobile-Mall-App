@@ -151,7 +151,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding-top: .5rem; */
 }
 .clear-left{
   display: flex;

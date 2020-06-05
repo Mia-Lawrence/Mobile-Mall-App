@@ -9,5 +9,8 @@ module.exports = {
         'js': '@/js'
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/Mobile-Mall-App/'
+    : '/'
 }

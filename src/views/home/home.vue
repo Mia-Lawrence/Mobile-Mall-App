@@ -69,13 +69,17 @@ export default {
   },
   deactivated () {
     // 4.删除储存的位置，为下一次的新位置做准备，否则会一直跳转到一个位置
-    window.sessionStorage.removeItem('curStorage')
+    if (window.sessionStorage.getItem('curStorage')) {
+      window.sessionStorage.removeItem('curStorage')
+    }
   },
   beforeRouteLeave (to, from, next) {
     // 2.在离开之前调用onscroll，记录停留的位置，否则position.y会变成0
     this.onscroll()
     // 3.在未激活的时候调用scrollTo跳转至储存的位置
-    this.$refs.scroll.scrollTo(0, window.sessionStorage.getItem('curStorage'))
+    if (window.sessionStorage.getItem('curStorage')) {
+      this.$refs.scroll.scrollTo(0, window.sessionStorage.getItem('curStorage'))
+    }
     next()
   },
   methods: {
@@ -115,8 +119,10 @@ export default {
     // 1.箭头scroll事件，将position.y储存在sessionStorage中
     onscroll () {
       this.$refs.scroll.bscroll.on('scroll', (position) => {
-        this.curPosition = position.y
-        window.sessionStorage.setItem('curStorage', this.curPosition)
+        if (position) {
+          this.curPosition = position.y
+          window.sessionStorage.setItem('curStorage', this.curPosition)
+        }
       })
     }
   }
