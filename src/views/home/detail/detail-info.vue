@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="info-procuct">
-      <div class="product-title">{{productInfoList.title}}</div>
+      <div class="product-title">{{productInfoList.title || '暂无商品名称' }}</div>
       <div class="product-other">
         <span class="postage">{{productInfoList.postage}}</span>
         <span class="month-sellcount">月售{{sellCount}}件</span>

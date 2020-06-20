@@ -101,20 +101,22 @@ export default {
       const product = {}
       product.seller = this.shopDetail.shopName
       product.image = this.detailSwiperList[0]
-      product.title = this.productInfo.title
+      if (this.productInfo.title) {
+        product.title = this.productInfo.title
+      } else {
+        product.title = '暂无商品名称'
+      }
       product.fee = this.productInfo.postage
       product.id = this.$route.params.id
       // 选取最低价格展示在购物车
       product.price = this.productInfo.priceText.split('-')[0]
 
       // 2.将数据放入vuex中进行状态管理
-      this.$store.commit('addCartList', product)
-      // console.log(this.$store.state.cartList)
+      this.$store.dispatch('addCartList', product)
 
       // 重新初始化是否全选
       this.$bus.$emit('initSelect')
 
-      // this.$store.commit('AddCartInfo', product)
       this.AddCartShow = true
       setTimeout(() => {
         this.AddCartShow = false

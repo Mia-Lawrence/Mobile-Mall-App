@@ -130,7 +130,9 @@ export default {
     },
     backTop (y) {
       // scrollTo返回指定坐标位置
-      this.$refs.scroll.scrollTo(0, y)
+      if (y !== 0) {
+        this.$refs.scroll.scrollTo(0, y)
+      }
     }
   }
 }

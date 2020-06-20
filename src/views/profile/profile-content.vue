@@ -1,8 +1,11 @@
 <template>
   <div class="profile-content">
     <div class="profile-login">
-      <img src="~./user-img.jpg" class="login-image">
-      <p class="login-text">
+      <img src="~./user-img.png" class="login-image">
+      <p class="login-name text-ellipsis" v-if="isLogin">
+        <span class="login-name-text">{{this.$store.state.loginName}}</span>
+      </p>
+      <p class="login-text" v-else>
         <span class="register">注册</span>
         <span>&nbsp;|&nbsp;</span>
         <span class="login">登录</span>
@@ -64,6 +67,7 @@ export default {
   name: 'profileContent',
   data () {
     return {
+      isLogin: true
     }
   }
 }
@@ -88,6 +92,14 @@ export default {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
+  border: 2px solid #999;
+}
+.login-name{
+  width: 7.5rem;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: bold;
+  margin-top: .5rem;
 }
 .login-text{
   color: #000;

@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="g-container">
+    <login-tip/>
     <keep-alive exclude="homeDetail,cart">
       <router-view/>
     </keep-alive>
@@ -9,10 +10,12 @@
 
 <script>
 import mainTabbar from 'components/content/maintabbar'
+import loginTip from 'views/login/login-tip.vue'
 export default {
   name: 'App',
   components: {
-    mainTabbar
+    mainTabbar,
+    loginTip
   },
   created () {
     // vuex数据的缓存，刷新后不消失

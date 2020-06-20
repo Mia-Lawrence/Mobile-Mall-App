@@ -25,6 +25,10 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   width: 100vw;
+  /* 谷歌为了运行更加流畅 touchstart 和 touchmove 事件处理函数，会默认为是 passive: true */
+  /* 1.更改passive的值：window.addEventListener('touchmove', func, { passive: false }) */
+  /* 2.设置样式：touch-action: none; */
+  touch-action: none;
 }
 
 ul, li, h1, h2, h3, h4, h5, h6, p, form, dl, dt, dd, a, div { 

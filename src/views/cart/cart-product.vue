@@ -165,13 +165,6 @@ export default {
   height: calc(100vh - 6.6rem);
 }
 
-/* 谷歌为了运行更加流畅 touchstart 和 touchmove 事件处理函数，会默认为是 passive: true */
-/* 1.更改passive的值：window.addEventListener('touchmove', func, { passive: false }) */
-/* 2.设置样式：touch-action: none; */
-.cart-product-content{
-  touch-action: none;
-}
-
 .cart-product{
   width: 100%;
   height: calc(100vh - 7rem);
@@ -198,6 +191,9 @@ export default {
 }
 .icon-slect{
   color: red;
+}
+.cart-product-content{
+  flex: 1;
 }
 
 .product-shop{
@@ -228,6 +224,7 @@ export default {
   margin-top: .5rem;
 }
 .product-price-info{
+  width: 100%;
   display: flex;
   align-items: center;
 }

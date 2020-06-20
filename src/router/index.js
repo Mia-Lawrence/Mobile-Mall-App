@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 // router懒加载
+const Login = () => import('views/login/login.vue')
 const Home = () => import('views/home/home')
 const Category = () => import('views/category/category')
 const Cart = () => import('views/cart/cart')
@@ -13,7 +14,12 @@ const Detail = () => import('views/home/detail/detail')
 const routes = [
   {
     path: '*',
-    redirect: '/home'
+    redirect: '/login'
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: Login
   },
   {
     name: 'home',

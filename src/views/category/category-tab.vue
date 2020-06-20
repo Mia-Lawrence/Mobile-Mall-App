@@ -58,7 +58,6 @@ export default {
   width: 4rem;
   height: 100%;
   border: 1px solid #eee;
-  padding-top: 2.2rem;
   position: relative;
   z-index: 3;
 }
